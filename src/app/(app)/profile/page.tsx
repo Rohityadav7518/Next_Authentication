@@ -21,9 +21,9 @@ const onLogout = async()=>{
 
 const getDetail = async()=>{
 try {
-  const res =  await axios.get("/api/users/me")
+  const res:any = await axios.get("/api/users/me")
   console.log(res.data);
-  setData(res.data._id)
+  setData(res._id)
   
 } catch (error) {
   throw new Error("Failed to Get user ")

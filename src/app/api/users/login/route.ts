@@ -3,13 +3,15 @@ import User from "@/models/userModel";
 import { Connect } from "@/dbConfig/dbConfig"
 import bcryptjs from 'bcryptjs'
 import jwt from "jsonwebtoken"
+
+
 Connect()
 
 export async function POST(request: NextRequest) {
     try {
         const reqBody = await request.json()
         const { email, username, password } = reqBody;
-        const user = await User.findOne({ email })
+        const user = await User.findOne({email})
         if (!user) {
             return NextResponse.json({
                 message: "User NOt Found"
